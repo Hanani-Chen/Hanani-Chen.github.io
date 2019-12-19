@@ -73,7 +73,7 @@
 
 
 
-  <meta name="keywords" content="操作系统,Linux," />
+  <meta name="keywords" content="Linux,操作系统," />
 
 
 
@@ -84,13 +84,13 @@
 
 
 
-<meta name="description" content="Shell    执行以上kill时如果没有找到要杀死的程序，那么就会输入到killerr.txt  管道 本地变量 定义 name&#x3D;1 echo  $name unset name   环境变量   位置变量 特殊变量 引号 通配符 连接符  正则表达式   grep">
-<meta name="keywords" content="操作系统,Linux">
+<meta name="description" content="Shell">
+<meta name="keywords" content="Linux,操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux学习记录（二）">
 <meta property="og:url" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;2019&#x2F;12&#x2F;19&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;index.html">
 <meta property="og:site_name" content="Bony fish">
-<meta property="og:description" content="Shell    执行以上kill时如果没有找到要杀死的程序，那么就会输入到killerr.txt  管道 本地变量 定义 name&#x3D;1 echo  $name unset name   环境变量   位置变量 特殊变量 引号 通配符 连接符  正则表达式   grep">
+<meta property="og:description" content="Shell">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219191343947.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219191350479.png">
@@ -112,7 +112,35 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219202048912.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219204919323.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219204910280.png">
-<meta property="og:updated_time" content="2019-12-19T12:51:37.993Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219205231471.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219205240469.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219205815315.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219205930662.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219210316366.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219210324338.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219210800472.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219210810236.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219210817220.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219210827682.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219210837882.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219211000629.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219211149177.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219211325393.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219211332249.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219211337236.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219212614547.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219212601345.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219212758826.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219214122296.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219214128460.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219214142341.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219214150081.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219214331092.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219214416836.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219214928556.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219214941845.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219214946218.png">
+<meta property="og:updated_time" content="2019-12-19T13:51:25.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89&#x2F;image-20191219191343947.png">
 
@@ -329,7 +357,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  68
+                  116
                 </span>
               
 
@@ -367,6 +395,8 @@
 
       
         <h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219191343947.png" alt="image-20191219191343947"></p>
+<a id="more"></a>
+
 <p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219191350479.png" alt="image-20191219191350479"></p>
 <p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219191616494.png" alt="image-20191219191616494"></p>
 <ul>
@@ -394,7 +424,41 @@
 <h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h3><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219202048912.png" alt="image-20191219202048912"></p>
 <p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219204919323.png" alt="image-20191219204919323"></p>
 <p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219204910280.png" alt="image-20191219204910280"></p>
-<h3 id><a href="#" class="headerlink" title></a></h3>
+<h3 id="sed"><a href="#sed" class="headerlink" title="sed(?)"></a>sed(?)</h3><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219205231471.png" alt="image-20191219205231471"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219205240469.png" alt="image-20191219205240469"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219205815315.png" alt="image-20191219205815315"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219205930662.png" alt="image-20191219205930662"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219210316366.png" alt="image-20191219210316366"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219210324338.png" alt="image-20191219210324338"></p>
+<h3 id="awk"><a href="#awk" class="headerlink" title="awk(?)"></a>awk(?)</h3><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219210800472.png" alt="image-20191219210800472"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219210810236.png" alt="image-20191219210810236"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219210817220.png" alt="image-20191219210817220"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219210827682.png" alt="image-20191219210827682"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219210837882.png" alt="image-20191219210837882"></p>
+<h3 id="if结构"><a href="#if结构" class="headerlink" title="if结构"></a>if结构</h3><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219211000629.png" alt="image-20191219211000629"></p>
+<h3 id="条件测试（？）"><a href="#条件测试（？）" class="headerlink" title="条件测试（？）"></a>条件测试（？）</h3><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219211149177.png" alt="image-20191219211149177"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219211325393.png" alt="image-20191219211325393"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219211332249.png" alt="image-20191219211332249"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219211337236.png" alt="image-20191219211337236"></p>
+<h3 id="if-elif-else"><a href="#if-elif-else" class="headerlink" title="if/elif/else"></a>if/elif/else</h3><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219212614547.png" alt="image-20191219212614547"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219212601345.png" alt="image-20191219212601345"></p>
+<h3 id="case"><a href="#case" class="headerlink" title="case"></a>case</h3><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219212758826.png" alt="image-20191219212758826"></p>
+<h3 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h3><h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219214122296.png" alt="image-20191219214122296"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219214128460.png" alt="image-20191219214128460"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219214142341.png" alt="image-20191219214142341"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219214150081.png" alt="image-20191219214150081"></p>
+<h4 id="while"><a href="#while" class="headerlink" title="while"></a>while</h4><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219214331092.png" alt="image-20191219214331092"></p>
+<h4 id="until"><a href="#until" class="headerlink" title="until"></a>until</h4><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219214416836.png" alt="image-20191219214416836"></p>
+<h3 id="break和continue"><a href="#break和continue" class="headerlink" title="break和continue"></a>break和continue</h3><ul>
+<li><strong>和c一样意思</strong></li>
+</ul>
+<h2 id="Shell脚本的基本元素与执行方式"><a href="#Shell脚本的基本元素与执行方式" class="headerlink" title="Shell脚本的基本元素与执行方式"></a>Shell脚本的基本元素与执行方式</h2><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219214928556.png" alt="image-20191219214928556"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219214941845.png" alt="image-20191219214941845"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89/image-20191219214946218.png" alt="image-20191219214946218"></p>
+<ul>
+<li><h2 id="脚本运维实例（略）"><a href="#脚本运维实例（略）" class="headerlink" title="脚本运维实例（略）"></a>脚本运维实例（略）</h2></li>
+</ul>
+
       
     </div>
     
@@ -411,9 +475,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag"><i class="fa fa-tag"></i> 操作系统</a>
-          
             <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag"><i class="fa fa-tag"></i> 操作系统</a>
           
         </div>
       
@@ -561,7 +625,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Shell"><span class="nav-number">1.</span> <span class="nav-text">Shell</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#管道"><span class="nav-number">1.1.</span> <span class="nav-text">管道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地变量"><span class="nav-number">1.2.</span> <span class="nav-text">本地变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量"><span class="nav-number">1.3.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位置变量"><span class="nav-number">1.4.</span> <span class="nav-text">位置变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊变量"><span class="nav-number">1.5.</span> <span class="nav-text">特殊变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引号"><span class="nav-number">1.6.</span> <span class="nav-text">引号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通配符"><span class="nav-number">1.7.</span> <span class="nav-text">通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接符"><span class="nav-number">1.8.</span> <span class="nav-text">连接符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">2.</span> <span class="nav-text">正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#grep"><span class="nav-number">2.1.</span> <span class="nav-text">grep</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.2.</span> <span class="nav-text"></span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Shell"><span class="nav-number">1.</span> <span class="nav-text">Shell</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#管道"><span class="nav-number">1.1.</span> <span class="nav-text">管道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地变量"><span class="nav-number">1.2.</span> <span class="nav-text">本地变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量"><span class="nav-number">1.3.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位置变量"><span class="nav-number">1.4.</span> <span class="nav-text">位置变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊变量"><span class="nav-number">1.5.</span> <span class="nav-text">特殊变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引号"><span class="nav-number">1.6.</span> <span class="nav-text">引号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通配符"><span class="nav-number">1.7.</span> <span class="nav-text">通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接符"><span class="nav-number">1.8.</span> <span class="nav-text">连接符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">2.</span> <span class="nav-text">正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#grep"><span class="nav-number">2.1.</span> <span class="nav-text">grep</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sed"><span class="nav-number">2.2.</span> <span class="nav-text">sed(?)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#awk"><span class="nav-number">2.3.</span> <span class="nav-text">awk(?)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if结构"><span class="nav-number">2.4.</span> <span class="nav-text">if结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件测试（？）"><span class="nav-number">2.5.</span> <span class="nav-text">条件测试（？）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if-elif-else"><span class="nav-number">2.6.</span> <span class="nav-text">if/elif/else</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#case"><span class="nav-number">2.7.</span> <span class="nav-text">case</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环结构"><span class="nav-number">2.8.</span> <span class="nav-text">循环结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if"><span class="nav-number">2.8.1.</span> <span class="nav-text">if</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#while"><span class="nav-number">2.8.2.</span> <span class="nav-text">while</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#until"><span class="nav-number">2.8.3.</span> <span class="nav-text">until</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#break和continue"><span class="nav-number">2.9.</span> <span class="nav-text">break和continue</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shell脚本的基本元素与执行方式"><span class="nav-number">3.</span> <span class="nav-text">Shell脚本的基本元素与执行方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚本运维实例（略）"><span class="nav-number">4.</span> <span class="nav-text">脚本运维实例（略）</span></a></li></ol></div>
             
 
           </div>
