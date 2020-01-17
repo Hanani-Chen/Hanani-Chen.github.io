@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+<!-- ��ը����Ч�� -->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/firework.js"></script>
+
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux,操作系统," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="gcc命令-o gcc hello.c -o hello 编译生成执行文件 gcc  -E&#x2F;S&#x2F;c hello.c -o hello.i&#x2F;s&#x2F;o 信息输出到文件中  -c gcc -c hello.c -0 hello.o 生产编译文件 gcc -c functions&#x2F;greeting.c   -g gcc hello.c -g -o hello 生成调试信息供gdb所需  -L&#x2F;l(大">
+<meta name="keywords" content="Linux,操作系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux学习记录（四）">
+<meta property="og:url" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;2019&#x2F;12&#x2F;22&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89&#x2F;index.html">
+<meta property="og:site_name" content="Bony fish">
+<meta property="og:description" content="gcc命令-o gcc hello.c -o hello 编译生成执行文件 gcc  -E&#x2F;S&#x2F;c hello.c -o hello.i&#x2F;s&#x2F;o 信息输出到文件中  -c gcc -c hello.c -0 hello.o 生产编译文件 gcc -c functions&#x2F;greeting.c   -g gcc hello.c -g -o hello 生成调试信息供gdb所需  -L&#x2F;l(大">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89&#x2F;image-20191222152112900.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89&#x2F;image-20191222152126452.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89&#x2F;image-20191222152329818.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89&#x2F;image-20191222153517079.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89&#x2F;image-20191222163743671.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89&#x2F;image-20191222163750795.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89&#x2F;image-20191222164437314.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89&#x2F;image-20191222164451573.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89&#x2F;image-20191222164508253.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89&#x2F;image-20191222164546121.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89&#x2F;image-20191222164609790.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89&#x2F;image-20191222164632756.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89&#x2F;image-20191222164659928.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89&#x2F;image-20191222164740316.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89&#x2F;image-20191222164810939.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89&#x2F;image-20191222183346279.png">
+<meta property="og:updated_time" content="2019-12-22T10:55:13.199Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89&#x2F;image-20191222152112900.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hanani-chen.github.io/2019/12/22/Linux学习记录（四）/"/>
+
+
+
+
+
+  <title>Linux学习记录（四） | Bony fish</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bony fish</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Be water my friend</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hanani-chen.github.io/2019/12/22/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hanani">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/eyes.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bony fish">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux学习记录（四）</h1>
+        
+
+        <div class="post-meta">
+	
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-22T15:19:51+08:00">
+                2019-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  159
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89/image-20191222152112900.png" alt="image-20191222152112900"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89/image-20191222152126452.png" alt="image-20191222152126452"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89/image-20191222152329818.png" alt="image-20191222152329818"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89/image-20191222153517079.png" alt="image-20191222153517079"></p>
+<h2 id="gcc命令"><a href="#gcc命令" class="headerlink" title="gcc命令"></a>gcc命令</h2><h3 id="o"><a href="#o" class="headerlink" title="-o"></a>-o</h3><ul>
+<li>gcc hello.c -o hello 编译生成执行文件</li>
+<li>gcc  -E/S/c hello.c -o hello.i/s/o 信息输出到文件中</li>
+</ul>
+<h3 id="c"><a href="#c" class="headerlink" title="-c"></a>-c</h3><ul>
+<li>gcc -c hello.c -0 hello.o 生产编译文件</li>
+<li>gcc -c functions/greeting.c </li>
+</ul>
+<h3 id="g"><a href="#g" class="headerlink" title="-g"></a>-g</h3><ul>
+<li>gcc hello.c -g -o hello 生成调试信息供gdb所需</li>
+</ul>
+<h3 id="L-l-大写"><a href="#L-l-大写" class="headerlink" title="-L/l(大写)"></a>-L/l(大写)</h3><ul>
+<li>l是链接到库文件名</li>
+<li>L是链接到库所在目录</li>
+</ul>
+<h3 id="i（大写）"><a href="#i（大写）" class="headerlink" title="-i（大写）"></a>-i（大写）</h3><ul>
+<li>用来链接头文件的目录</li>
+</ul>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89/image-20191222163743671.png" alt="image-20191222163743671"></p>
+<p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89/image-20191222163750795.png" alt="image-20191222163750795"></p>
+<p>ps：一开始看不懂/是啥，哈哈哈，原来是文件目录，这下懂了</p>
+<h2 id="gdb"><a href="#gdb" class="headerlink" title="gdb"></a>gdb</h2><h3 id="break-b"><a href="#break-b" class="headerlink" title="break(b)"></a>break(b)</h3><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89/image-20191222164437314.png" alt="image-20191222164437314"></p>
+<h3 id="run"><a href="#run" class="headerlink" title="run"></a>run</h3><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89/image-20191222164451573.png" alt="image-20191222164451573"></p>
+<h3 id="continue-c"><a href="#continue-c" class="headerlink" title="continue(c)"></a>continue(c)</h3><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89/image-20191222164508253.png" alt="image-20191222164508253"></p>
+<h3 id="list-l"><a href="#list-l" class="headerlink" title="list(l)"></a>list(l)</h3><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89/image-20191222164546121.png" alt="image-20191222164546121"></p>
+<h3 id="next"><a href="#next" class="headerlink" title="next"></a>next</h3><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89/image-20191222164609790.png" alt="image-20191222164609790"></p>
+<h3 id="step"><a href="#step" class="headerlink" title="step"></a>step</h3><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89/image-20191222164632756.png" alt="image-20191222164632756"></p>
+<h3 id="display"><a href="#display" class="headerlink" title="display"></a>display</h3><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89/image-20191222164659928.png" alt="image-20191222164659928"></p>
+<h3 id="print"><a href="#print" class="headerlink" title="print"></a>print</h3><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89/image-20191222164740316.png" alt="image-20191222164740316"></p>
+<h3 id="quit"><a href="#quit" class="headerlink" title="quit"></a>quit</h3><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89/image-20191222164810939.png" alt="image-20191222164810939"></p>
+<h2 id="代码管理make"><a href="#代码管理make" class="headerlink" title="代码管理make"></a>代码管理make</h2><h3 id="内置变量"><a href="#内置变量" class="headerlink" title="内置变量"></a>内置变量</h3><p><img src="/images/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9B%EF%BC%89/image-20191222183346279.png" alt="image-20191222183346279"></p>
+<p>打标机回头来看</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag"><i class="fa fa-tag"></i> 操作系统</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/22/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%89%EF%BC%89/" rel="next" title="Linux学习记录（三）">
+                <i class="fa fa-chevron-left"></i> Linux学习记录（三）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/22/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%94%EF%BC%89/" rel="prev" title="Linux学习记录（五）">
+                Linux学习记录（五） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/eyes.jpg"
+                alt="Hanani" />
+            
+              <p class="site-author-name" itemprop="name">Hanani</p>
+              <p class="site-description motion-element" itemprop="description">Nothing is true,everything is permitted</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#gcc命令"><span class="nav-number">1.</span> <span class="nav-text">gcc命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#o"><span class="nav-number">1.1.</span> <span class="nav-text">-o</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c"><span class="nav-number">1.2.</span> <span class="nav-text">-c</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#g"><span class="nav-number">1.3.</span> <span class="nav-text">-g</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#L-l-大写"><span class="nav-number">1.4.</span> <span class="nav-text">-L/l(大写)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#i（大写）"><span class="nav-number">1.5.</span> <span class="nav-text">-i（大写）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gdb"><span class="nav-number">2.</span> <span class="nav-text">gdb</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#break-b"><span class="nav-number">2.1.</span> <span class="nav-text">break(b)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#run"><span class="nav-number">2.2.</span> <span class="nav-text">run</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#continue-c"><span class="nav-number">2.3.</span> <span class="nav-text">continue(c)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list-l"><span class="nav-number">2.4.</span> <span class="nav-text">list(l)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next"><span class="nav-number">2.5.</span> <span class="nav-text">next</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step"><span class="nav-number">2.6.</span> <span class="nav-text">step</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#display"><span class="nav-number">2.7.</span> <span class="nav-text">display</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#print"><span class="nav-number">2.8.</span> <span class="nav-text">print</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quit"><span class="nav-number">2.9.</span> <span class="nav-text">quit</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码管理make"><span class="nav-number">3.</span> <span class="nav-text">代码管理make</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内置变量"><span class="nav-number">3.1.</span> <span class="nav-text">内置变量</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+      
+        <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+        <div class="widget-wrap">
+          <h3 class="widget-title">Tag Cloud</h3>
+          <div id="myCanvasContainer" class="widget tagcloud">
+            <canvas width="250" height="250" id="resCanvas" style="width=100%">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E5%BE%97/" rel="tag">心得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91/" rel="tag">文本编辑</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a><span class="tag-list-count">2</span></li></ul>
+            </canvas>
+          </div>
+        </div>
+     
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hanani</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">4.6k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":300,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
