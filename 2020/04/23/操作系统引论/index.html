@@ -111,7 +111,10 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA&#x2F;image-20200423174236459.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA&#x2F;image-20200423174228896.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA&#x2F;image-20200423174301299.png">
-<meta property="og:updated_time" content="2020-04-23T09:45:55.145Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA&#x2F;image-20200425231554536.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA&#x2F;image-20200425231607498.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA&#x2F;image-20200425231635688.png">
+<meta property="og:updated_time" content="2020-04-26T00:45:56.842Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA&#x2F;image-20200423095323470.png">
 
@@ -328,7 +331,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  210
+                  515
                 </span>
               
 
@@ -397,6 +400,22 @@
 <p><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA/image-20200423174228896.png" alt="image-20200423174228896"></p>
 <p><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA/image-20200423174301299.png" alt="image-20200423174301299"></p>
 <h4 id="虚拟机结构"><a href="#虚拟机结构" class="headerlink" title="虚拟机结构"></a>虚拟机结构</h4><p>原来虚拟机是这样的。。。就是把裸机向上拷贝一份<br>然后在上面装你喜欢的操作系统。。。</p>
+<h4 id="C-S结构（微内核模式）"><a href="#C-S结构（微内核模式）" class="headerlink" title="C/S结构（微内核模式）"></a>C/S结构（微内核模式）</h4><p>这部分有两种内核：</p>
+<p>宏内核：就是把各种管理模块，处理器，储存器，设备，文件管理，放在一起。<br>记得<strong>宏内核就是单内核</strong>！！！</p>
+<p>微内核：就是把上面的模块分离开。</p>
+<p>c/s结构原来是，我们电脑的服务呀啥的，就是运行在用户态的服务，其实是<br>我们通过发送请求，然后内核帮我转接到服务上，然后请求的。。。</p>
+<p>然后上面的用户态的服务其实是微内核概念中分离出来的模块。</p>
+<p><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA/image-20200425231554536.png" alt="image-20200425231554536"></p>
+<p><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA/image-20200425231607498.png" alt="image-20200425231607498"></p>
+<p>。。搞得好像传销的233</p>
+<p><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA/image-20200425231635688.png" alt="image-20200425231635688"></p>
+<p>这里的网络线应该是什么bus里的，之前上课学的，现在忘了挺多。</p>
+<p>后面再说吧。。</p>
+<p>然后这个c/s结构就是移植性高，模块化（就是之间不影响），<br>没使用的不必运行，省资源。。</p>
+<p>最后缺点显而易见，比宏内核执行效率慢是肯定的233。</p>
+<h4 id="三个经典操作系统"><a href="#三个经典操作系统" class="headerlink" title="三个经典操作系统"></a>三个经典操作系统</h4><h4 id="UNIX："><a href="#UNIX：" class="headerlink" title="UNIX："></a>UNIX：</h4><p>经典的整体式体系结构的操作系统</p>
+<h4 id="LINUX："><a href="#LINUX：" class="headerlink" title="LINUX："></a>LINUX：</h4><p>宏内核，但是采用的是模块化的单内核。。</p>
+<h4 id="Window："><a href="#Window：" class="headerlink" title="Window："></a>Window：</h4><p>应该是C/S结构设计的最强体现了。。</p>
 
       
     </div>
@@ -562,7 +581,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统历史"><span class="nav-number">1.</span> <span class="nav-text">操作系统历史</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#四个阶段"><span class="nav-number">1.0.1.</span> <span class="nav-text">四个阶段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单道与多道批处理系统"><span class="nav-number">1.0.2.</span> <span class="nav-text">单道与多道批处理系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分时系统"><span class="nav-number">1.0.3.</span> <span class="nav-text">分时系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实时系统"><span class="nav-number">1.0.4.</span> <span class="nav-text">实时系统</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统调用"><span class="nav-number">2.</span> <span class="nav-text">系统调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四种操作系统结构"><span class="nav-number">3.</span> <span class="nav-text">四种操作系统结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#整体式结构设计"><span class="nav-number">3.0.1.</span> <span class="nav-text">整体式结构设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#层次化结构设计"><span class="nav-number">3.0.2.</span> <span class="nav-text">层次化结构设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟机结构"><span class="nav-number">3.0.3.</span> <span class="nav-text">虚拟机结构</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统历史"><span class="nav-number">1.</span> <span class="nav-text">操作系统历史</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#四个阶段"><span class="nav-number">1.0.1.</span> <span class="nav-text">四个阶段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单道与多道批处理系统"><span class="nav-number">1.0.2.</span> <span class="nav-text">单道与多道批处理系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分时系统"><span class="nav-number">1.0.3.</span> <span class="nav-text">分时系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实时系统"><span class="nav-number">1.0.4.</span> <span class="nav-text">实时系统</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统调用"><span class="nav-number">2.</span> <span class="nav-text">系统调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四种操作系统结构"><span class="nav-number">3.</span> <span class="nav-text">四种操作系统结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#整体式结构设计"><span class="nav-number">3.0.1.</span> <span class="nav-text">整体式结构设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#层次化结构设计"><span class="nav-number">3.0.2.</span> <span class="nav-text">层次化结构设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟机结构"><span class="nav-number">3.0.3.</span> <span class="nav-text">虚拟机结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C-S结构（微内核模式）"><span class="nav-number">3.0.4.</span> <span class="nav-text">C/S结构（微内核模式）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三个经典操作系统"><span class="nav-number">3.0.5.</span> <span class="nav-text">三个经典操作系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UNIX："><span class="nav-number">3.0.6.</span> <span class="nav-text">UNIX：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LINUX："><span class="nav-number">3.0.7.</span> <span class="nav-text">LINUX：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Window："><span class="nav-number">3.0.8.</span> <span class="nav-text">Window：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -609,7 +628,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">4.8k</span>
+    <span title="Site words total count">5.1k</span>
   
 </div>
 
