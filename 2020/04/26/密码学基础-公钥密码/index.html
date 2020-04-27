@@ -73,7 +73,7 @@
 
 
 
-  <meta name="keywords" content="密码学,公钥密码," />
+  <meta name="keywords" content="密码学,公钥密码,RSA," />
 
 
 
@@ -85,14 +85,14 @@
 
 
 <meta name="description" content="RSA前置工作其实挺简单的，就是先选两个大的素数，然后相乘得到n。 然后取一个数e，$1&amp;lt;e&amp;lt;\Phi(n)$ps：这边顺便学习下makedown的数学公式。 然后$gcd(e,\Phi(n))&#x3D;1$ 然后求一个d    $ed\equiv1(mod \Phi(n))$ 就是求个逆元啦。。 然后n和e为公钥喽，d自己保管，这里就是说rsa的困难性就在求$\Phi(n)$ 然后正常求的话">
-<meta name="keywords" content="密码学,公钥密码">
+<meta name="keywords" content="密码学,公钥密码,RSA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="密码学基础-公钥密码">
 <meta property="og:url" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;2020&#x2F;04&#x2F;26&#x2F;%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81&#x2F;index.html">
 <meta property="og:site_name" content="Bony fish">
 <meta property="og:description" content="RSA前置工作其实挺简单的，就是先选两个大的素数，然后相乘得到n。 然后取一个数e，$1&amp;lt;e&amp;lt;\Phi(n)$ps：这边顺便学习下makedown的数学公式。 然后$gcd(e,\Phi(n))&#x3D;1$ 然后求一个d    $ed\equiv1(mod \Phi(n))$ 就是求个逆元啦。。 然后n和e为公钥喽，d自己保管，这里就是说rsa的困难性就在求$\Phi(n)$ 然后正常求的话">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-27T00:44:03.254Z">
+<meta property="og:updated_time" content="2020-04-27T02:07:35.882Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -382,6 +382,8 @@
           
             <a href="/tags/%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81/" rel="tag"><i class="fa fa-tag"></i> 公钥密码</a>
           
+            <a href="/tags/RSA/" rel="tag"><i class="fa fa-tag"></i> RSA</a>
+          
         </div>
       
 
@@ -495,7 +497,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -545,7 +547,7 @@
           <h3 class="widget-title">Tag Cloud</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
             <canvas width="250" height="250" id="resCanvas" style="width=100%">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81/" rel="tag">公钥密码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag">密码学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E5%BE%97/" rel="tag">心得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91/" rel="tag">文本编辑</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a><span class="tag-list-count">2</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/" rel="tag">RSA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81/" rel="tag">公钥密码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag">密码学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E5%BE%97/" rel="tag">心得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91/" rel="tag">文本编辑</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a><span class="tag-list-count">2</span></li></ul>
             </canvas>
           </div>
         </div>
