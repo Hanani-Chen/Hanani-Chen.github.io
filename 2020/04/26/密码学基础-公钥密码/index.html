@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Bony fish">
 <meta property="og:description" content="RSA前置工作其实挺简单的，就是先选两个大的素数，然后相乘得到n。 然后取一个数e，$1&amp;lt;e&amp;lt;\Phi(n)$ps：这边顺便学习下makedown的数学公式。 然后$gcd(e,\Phi(n))&#x3D;1$ 然后求一个d    $ed\equiv1(mod \Phi(n))$ 就是求个逆元啦。。 然后n和e为公钥喽，d自己保管，这里就是说rsa的困难性就在求$\Phi(n)$ 然后正常求的话">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-27T02:07:35.882Z">
+<meta property="og:updated_time" content="2020-04-27T15:07:51.570Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -308,7 +308,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  400
+                  811
                 </span>
               
 
@@ -324,7 +324,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  3
                 </span>
               
             </div>
@@ -361,6 +361,24 @@
 <h4 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h4><p>就反过来</p>
 <p>$m=D(c)=c^dmod\space n$</p>
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>其实RSA好简单。。感觉难度就是我不知道这个性质把233，就是<br>加解密这块，应该是个什么定理之类的。。。</p>
+<h2 id="Rabin"><a href="#Rabin" class="headerlink" title="Rabin"></a>Rabin</h2><h4 id="前置工作-1"><a href="#前置工作-1" class="headerlink" title="前置工作"></a>前置工作</h4><p>刚刚看完Rabin好像大体意思就是RSA的特例,,,<br>就是一开始也是选取两个素数p和q,但是..<br>要求$p\equiv3\space mod\space4$    和    $q\equiv3\space mod\space4$</p>
+<p>然后他的e选取2…</p>
+<h4 id="加密-1"><a href="#加密-1" class="headerlink" title="加密"></a>加密</h4><p>$c=E(m)=m^2mod\space n$</p>
+<p>和RSA一样只是固定e=2而已…</p>
+<h4 id="解密-1"><a href="#解密-1" class="headerlink" title="解密"></a>解密</h4><p>其实我们完全可以用RSA的解密来操作是吧.</p>
+<p>但Rabin之所以前面做了限制就是要现在使用的:<br>先说一个概念吧…</p>
+<p><strong>平方剩余</strong>:如果p是一个素数,a是整数,如果存在一个<br>整数x使得$x^2\equiv a(mod p)$,那么a就是mod p下是<strong>平方剩余</strong>的.</p>
+<p><strong>a模p的平方根</strong>:这个意思就是上述当中的x.q</p>
+<p>好了知道这些以后回到Rabin:</p>
+<p>前提:当 $p\equiv q\equiv3(mod 4)$时</p>
+<p>$x^2\equiv a(mod p)$的两个解为:q</p>
+<p>$x=\pm C^{(p+1)/4}mod\space p$</p>
+<p>$x^2\equiv a(mod q)$的两个解为:</p>
+<p>$x=\pm C^{(q+1)/4}mod\space q$</p>
+<p>很明显可以得到四组解,每组得到一个x,其实就是m.</p>
+<p>发现其实需要接收方猜测4个哪个是真实的,所以有的<br>发送方就会附加一些验证信息啥的…</p>
+<p>ps:这个定理打acm的时候遇到过,emmm记得周鹏学长<br>还证明了一波,但是我完全忘了.</p>
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><p>一开始在解密平方根的时候很懵,主要蒙在这个x不是已经<br>等于出来了吗?为什么还要再解一遍,后来发现因为他是方程组<br>且带着mod p或q呢!233发现自己挺蠢的.</p>
 
       
     </div>
@@ -530,7 +548,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA"><span class="nav-number">1.</span> <span class="nav-text">RSA</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前置工作"><span class="nav-number">1.0.1.</span> <span class="nav-text">前置工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加密"><span class="nav-number">1.0.2.</span> <span class="nav-text">加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解密"><span class="nav-number">1.0.3.</span> <span class="nav-text">解密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">1.0.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA"><span class="nav-number">1.</span> <span class="nav-text">RSA</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前置工作"><span class="nav-number">1.0.1.</span> <span class="nav-text">前置工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加密"><span class="nav-number">1.0.2.</span> <span class="nav-text">加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解密"><span class="nav-number">1.0.3.</span> <span class="nav-text">解密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">1.0.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rabin"><span class="nav-number">2.</span> <span class="nav-text">Rabin</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前置工作-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">前置工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加密-1"><span class="nav-number">2.0.2.</span> <span class="nav-text">加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解密-1"><span class="nav-number">2.0.3.</span> <span class="nav-text">解密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结-1"><span class="nav-number">2.0.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -577,7 +595,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">5.6k</span>
+    <span title="Site words total count">6k</span>
   
 </div>
 
