@@ -84,15 +84,15 @@
 
 
 
-<meta name="description" content="Nothing is true,everything is permitted">
+<meta name="description" content="RSA前置工作其实挺简单的，就是先选两个大的素数，然后相乘得到n。 然后取一个数e，$1&amp;lt;e&amp;lt;\Phi(n)$ps：这边顺便学习下makedown的数学公式。 然后$gcd(e,\Phi(n))&#x3D;1$ 然后求一个d    $ed\equiv1(mod \Phi(n))$ 就是求个逆元啦。。 然后n和e为公钥喽，d自己保管，这里就是说rsa的困难性就在求$\Phi(n)$ 然后正常求的话">
 <meta name="keywords" content="密码学,公钥密码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="密码学基础-公钥密码">
 <meta property="og:url" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;2020&#x2F;04&#x2F;26&#x2F;%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81&#x2F;index.html">
 <meta property="og:site_name" content="Bony fish">
-<meta property="og:description" content="Nothing is true,everything is permitted">
+<meta property="og:description" content="RSA前置工作其实挺简单的，就是先选两个大的素数，然后相乘得到n。 然后取一个数e，$1&amp;lt;e&amp;lt;\Phi(n)$ps：这边顺便学习下makedown的数学公式。 然后$gcd(e,\Phi(n))&#x3D;1$ 然后求一个d    $ed\equiv1(mod \Phi(n))$ 就是求个逆元啦。。 然后n和e为公钥喽，d自己保管，这里就是说rsa的困难性就在求$\Phi(n)$ 然后正常求的话">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-26T01:52:34.735Z">
+<meta property="og:updated_time" content="2020-04-27T00:44:03.254Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -308,7 +308,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  0
+                  400
                 </span>
               
 
@@ -345,7 +345,23 @@
       
 
       
-        
+        <h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><h4 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h4><p>其实挺简单的，就是先选两个大的素数，然后相乘得到n。</p>
+<p>然后取一个数e，$1&lt;e&lt;\Phi(n)$ps：这边顺便学习下makedown的数学公式。</p>
+<p>然后$gcd(e,\Phi(n))=1$</p>
+<p>然后求一个d    $ed\equiv1(mod \Phi(n))$</p>
+<p>就是求个逆元啦。。</p>
+<p>然后n和e为公钥喽，d自己保管，这里就是说rsa的困难性就在求$\Phi(n)$</p>
+<p>然后正常求的话复杂度应该是：求欧拉函数呗，应该是O(log(n))</p>
+<p>其实应该会退化就是了，比如n是一个大素数，当然，这里n不是，所以<br>大概是O($\sqrt(n)$),所以我们一般最开始取的两个大素数就取个一两百位的<br>这里乘法就很简单了，但是求$\Phi(n)$就很吃力了233.</p>
+<p>所以rsa的困难性在于大数因数分解的困难性。</p>
+<h4 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h4><p>记得就是要把信息划分为数值小于n的。</p>
+<p>然后每组进行$c=E(m)=m^e mod\space n$  </p>
+<p>我做作业的时候RSA加密一共有6题，<br>我前5题都用$mod\space n$自己验算还都是对的。。<br>到第6题还好及时发现了，靠太轻敌了嘛？</p>
+<p>ps:我发现我在数学公式里打一个空格<br>竟然要这样打：\space 还是我瞎打的，还真行233。</p>
+<h4 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h4><p>就反过来</p>
+<p>$m=D(c)=c^dmod\space n$</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>其实RSA好简单。。感觉难度就是我不知道这个性质把233，就是<br>加解密这块，应该是个什么定理之类的。。。</p>
+
       
     </div>
     
@@ -437,8 +453,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -494,6 +519,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA"><span class="nav-number">1.</span> <span class="nav-text">RSA</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前置工作"><span class="nav-number">1.0.1.</span> <span class="nav-text">前置工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加密"><span class="nav-number">1.0.2.</span> <span class="nav-text">加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解密"><span class="nav-number">1.0.3.</span> <span class="nav-text">解密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">1.0.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -534,7 +575,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">5.2k</span>
+    <span title="Site words total count">5.6k</span>
   
 </div>
 
