@@ -634,7 +634,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  811
+                  1.2k
                 </span>
               
 
@@ -650,7 +650,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  3
+                  4
                 </span>
               
             </div>
@@ -693,7 +693,7 @@
 <p>然后他的e选取2…</p>
 <h4 id="加密-1"><a href="#加密-1" class="headerlink" title="加密"></a>加密</h4><p>$c=E(m)=m^2mod\space n$</p>
 <p>和RSA一样只是固定e=2而已…</p>
-<h4 id="解密-1"><a href="#解密-1" class="headerlink" title="解密"></a>解密</h4><p>其实我们完全可以用RSA的解密来操作是吧.</p>
+<h4 id="解密-1"><a href="#解密-1" class="headerlink" title="解密"></a>解密</h4><p><del>其实我们完全可以用RSA的解密来操作是吧.</del><br>为啥不行呢，，因为$ed\equiv1(mod \Phi(n))$中<br>e要求要与$\Phi(n)$互质呀，明显不肯互质呀<br>e=2，（q-1）*（p-1）必定是偶数，别说q=p=2<br>233.。</p>
 <p>但Rabin之所以前面做了限制就是要现在使用的:<br>先说一个概念吧…</p>
 <p><strong>平方剩余</strong>:如果p是一个素数,a是整数,如果存在一个<br>整数x使得$x^2\equiv a(mod p)$,那么a就是mod p下是<strong>平方剩余</strong>的.</p>
 <p><strong>a模p的平方根</strong>:这个意思就是上述当中的x.q</p>
@@ -707,6 +707,22 @@
 <p>发现其实需要接收方猜测4个哪个是真实的,所以有的<br>发送方就会附加一些验证信息啥的…</p>
 <p>ps:这个定理打acm的时候遇到过,emmm记得周鹏学长<br>还证明了一波,但是我完全忘了.</p>
 <h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><p>一开始在解密平方根的时候很懵,主要蒙在这个x不是已经<br>等于出来了吗?为什么还要再解一遍,后来发现因为他是方程组<br>且带着mod p或q呢!233发现自己挺蠢的.</p>
+<h2 id="ElGamal"><a href="#ElGamal" class="headerlink" title="ElGamal"></a>ElGamal</h2><h4 id="前置工作-2"><a href="#前置工作-2" class="headerlink" title="前置工作"></a>前置工作</h4><p>嘻嘻,一开始看这个算法挺懵逼的.<br>感觉会掌握得很不好,但是现在看完<br>觉得他还证明了加解密的正确性,这<br>一点我让明白得很有底气..(怎么感觉在写词</p>
+<p>先看一个公式:$y=g^xmod\space p$</p>
+<p>这个公式就是离散对数,其实就是这个<br>加密算法得困难性是:<br><strong>基于有限域上的离散对数问题的困难性</strong></p>
+<p>通俗的说:知道g,x,p求y是容易的,,显然是容易的233</p>
+<p>但是知道g,y,p求x是困难的,p够大确实是困难的,所以<br>p一般要求150位以上啦.</p>
+<p>显然难求的东西肯定是私钥啦,</p>
+<p>其他都是公钥,让别人使用的233</p>
+<h4 id="加密-2"><a href="#加密-2" class="headerlink" title="加密"></a>加密</h4><p>这里会加密出两个密文<br>k为$Zp^*$上的随机数</p>
+<p>$c1=g^k mod\space p$</p>
+<p>$c2=my^kmod\space p$</p>
+<p>所以密文长度是明文的两倍啦</p>
+<h4 id="解密-2"><a href="#解密-2" class="headerlink" title="解密"></a>解密</h4><p>因为$y=g^xmod\space p$</p>
+<p>所以我们这样处理<br>$c2(c1^x)^{-1}mod\space p$<br>$=mg^{xk}g^{-xk}mod \space p$<br>$=m$</p>
+<p>是不是很有趣233</p>
+<p>其实k就是混淆那些不知道x的人用的<br>因为他最后被消掉了.</p>
+<h4 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h4><p>其实ElGamal算法,挺容易理解的<br>嘻嘻.</p>
 
           
         
@@ -1853,7 +1869,7 @@
 <p><img src="/images/Web-DOM%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%80%EF%BC%89/image-20191221194955127.png" alt="image-20191221194955127"></p>
 <p><img src="/images/Web-DOM%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%80%EF%BC%89/image-20191221195136728.png" alt="image-20191221195136728"></p>
 <h2 id="事件与事件处理"><a href="#事件与事件处理" class="headerlink" title="事件与事件处理"></a>事件与事件处理</h2><h3 id="事件响应"><a href="#事件响应" class="headerlink" title="事件响应"></a>事件响应</h3><p><img src="/images/Web-DOM%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%80%EF%BC%89/image-20191221200954516.png" alt="image-20191221200954516"></p>
-<h3 id="事件列表"><a href="#事件列表" class="headerlink" title="事件列表"></a>事件列表</h3><p><img src="/images/Web-DOM%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%80%EF%BC%89/image-20191221201116589.png" alt="image-20191221201116589">)<img src="/images/Web-DOM%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%80%EF%BC%89/image-20191221201234800.png" alt="image-20191221201234800"></p>
+<h3 id="事件列表"><a href="#事件列表" class="headerlink" title="事件列表"></a>事件列表</h3><p><img src="/images/Web-DOM%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%80%EF%BC%89/image-20191221201116589.png" alt="image-20191221201116589"><img src="/images/Web-DOM%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%80%EF%BC%89/image-20191221201234800.png" alt="image-20191221201234800"></p>
 <h3 id="事件注册"><a href="#事件注册" class="headerlink" title="事件注册"></a>事件注册</h3><p><img src="/images/Web-DOM%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%80%EF%BC%89/image-20191221201414941.png" alt="image-20191221201414941"></p>
 <p><img src="/images/Web-DOM%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%80%EF%BC%89/image-20191221201446259.png" alt="image-20191221201446259"></p>
 <p><img src="/images/Web-DOM%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%80%EF%BC%89/image-20191221201532011.png" alt="image-20191221201532011"></p>
@@ -2029,7 +2045,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">6k</span>
+    <span title="Site words total count">6.4k</span>
   
 </div>
 
