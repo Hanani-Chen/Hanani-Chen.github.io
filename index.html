@@ -672,8 +672,7 @@
 
       
         
-          
-            <h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><h4 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h4><p>其实挺简单的，就是先选两个大的素数，然后相乘得到n。</p>
+          <h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><h4 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h4><p>其实挺简单的，就是先选两个大的素数，然后相乘得到n。</p>
 <p>然后取一个数e，$1&lt;e&lt;\Phi(n)$ps：这边顺便学习下makedown的数学公式。</p>
 <p>然后$gcd(e,\Phi(n))=1$</p>
 <p>然后求一个d    $ed\equiv1(mod \Phi(n))$</p>
@@ -682,49 +681,13 @@
 <p>然后正常求的话复杂度应该是：求欧拉函数呗，应该是O(log(n))</p>
 <p>其实应该会退化就是了，比如n是一个大素数，当然，这里n不是，所以<br>大概是O($\sqrt(n)$),所以我们一般最开始取的两个大素数就取个一两百位的<br>这里乘法就很简单了，但是求$\Phi(n)$就很吃力了233.</p>
 <p>所以rsa的困难性在于大数因数分解的困难性。</p>
-<h4 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h4><p>记得就是要把信息划分为数值小于n的。</p>
-<p>然后每组进行$c=E(m)=m^e mod\space n$  </p>
-<p>我做作业的时候RSA加密一共有6题，<br>我前5题都用$mod\space n$自己验算还都是对的。。<br>到第6题还好及时发现了，靠太轻敌了嘛？</p>
-<p>ps:我发现我在数学公式里打一个空格<br>竟然要这样打：\space 还是我瞎打的，还真行233。</p>
-<h4 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h4><p>就反过来</p>
-<p>$m=D(c)=c^dmod\space n$</p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>其实RSA好简单。。感觉难度就是我不知道这个性质把233，就是<br>加解密这块，应该是个什么定理之类的。。。</p>
-<h2 id="Rabin"><a href="#Rabin" class="headerlink" title="Rabin"></a>Rabin</h2><h4 id="前置工作-1"><a href="#前置工作-1" class="headerlink" title="前置工作"></a>前置工作</h4><p>刚刚看完Rabin好像大体意思就是RSA的特例,,,<br>就是一开始也是选取两个素数p和q,但是..<br>要求$p\equiv3\space mod\space4$    和    $q\equiv3\space mod\space4$</p>
-<p>然后他的e选取2…</p>
-<h4 id="加密-1"><a href="#加密-1" class="headerlink" title="加密"></a>加密</h4><p>$c=E(m)=m^2mod\space n$</p>
-<p>和RSA一样只是固定e=2而已…</p>
-<h4 id="解密-1"><a href="#解密-1" class="headerlink" title="解密"></a>解密</h4><p><del>其实我们完全可以用RSA的解密来操作是吧.</del><br>为啥不行呢，，因为$ed\equiv1(mod \Phi(n))$中<br>e要求要与$\Phi(n)$互质呀，明显不肯互质呀<br>e=2，（q-1）*（p-1）必定是偶数，别说q=p=2<br>233.。</p>
-<p>但Rabin之所以前面做了限制就是要现在使用的:<br>先说一个概念吧…</p>
-<p><strong>平方剩余</strong>:如果p是一个素数,a是整数,如果存在一个<br>整数x使得$x^2\equiv a(mod p)$,那么a就是mod p下是<strong>平方剩余</strong>的.</p>
-<p><strong>a模p的平方根</strong>:这个意思就是上述当中的x.q</p>
-<p>好了知道这些以后回到Rabin:</p>
-<p>前提:当 $p\equiv q\equiv3(mod 4)$时</p>
-<p>$x^2\equiv a(mod p)$的两个解为:q</p>
-<p>$x=\pm C^{(p+1)/4}mod\space p$</p>
-<p>$x^2\equiv a(mod q)$的两个解为:</p>
-<p>$x=\pm C^{(q+1)/4}mod\space q$</p>
-<p>很明显可以得到四组解,每组得到一个x,其实就是m.</p>
-<p>发现其实需要接收方猜测4个哪个是真实的,所以有的<br>发送方就会附加一些验证信息啥的…</p>
-<p>ps:这个定理打acm的时候遇到过,emmm记得周鹏学长<br>还证明了一波,但是我完全忘了.</p>
-<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><p>一开始在解密平方根的时候很懵,主要蒙在这个x不是已经<br>等于出来了吗?为什么还要再解一遍,后来发现因为他是方程组<br>且带着mod p或q呢!233发现自己挺蠢的.</p>
-<h2 id="ElGamal"><a href="#ElGamal" class="headerlink" title="ElGamal"></a>ElGamal</h2><h4 id="前置工作-2"><a href="#前置工作-2" class="headerlink" title="前置工作"></a>前置工作</h4><p>嘻嘻,一开始看这个算法挺懵逼的.<br>感觉会掌握得很不好,但是现在看完<br>觉得他还证明了加解密的正确性,这<br>一点我让明白得很有底气..(怎么感觉在写词</p>
-<p>先看一个公式:$y=g^xmod\space p$</p>
-<p>这个公式就是离散对数,其实就是这个<br>加密算法得困难性是:<br><strong>基于有限域上的离散对数问题的困难性</strong></p>
-<p>通俗的说:知道g,x,p求y是容易的,,显然是容易的233</p>
-<p>但是知道g,y,p求x是困难的,p够大确实是困难的,所以<br>p一般要求150位以上啦.</p>
-<p>显然难求的东西肯定是私钥啦,</p>
-<p>其他都是公钥,让别人使用的233</p>
-<h4 id="加密-2"><a href="#加密-2" class="headerlink" title="加密"></a>加密</h4><p>这里会加密出两个密文<br>k为$Zp^*$上的随机数</p>
-<p>$c1=g^k mod\space p$</p>
-<p>$c2=my^kmod\space p$</p>
-<p>所以密文长度是明文的两倍啦</p>
-<h4 id="解密-2"><a href="#解密-2" class="headerlink" title="解密"></a>解密</h4><p>因为$y=g^xmod\space p$</p>
-<p>所以我们这样处理<br>$c2(c1^x)^{-1}mod\space p$<br>$=mg^{xk}g^{-xk}mod \space p$<br>$=m$</p>
-<p>是不是很有趣233</p>
-<p>其实k就是混淆那些不知道x的人用的<br>因为他最后被消掉了.</p>
-<h4 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h4><p>其实ElGamal算法,挺容易理解的<br>嘻嘻.</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/04/26/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

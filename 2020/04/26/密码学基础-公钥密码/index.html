@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Bony fish">
 <meta property="og:description" content="RSA前置工作其实挺简单的，就是先选两个大的素数，然后相乘得到n。 然后取一个数e，$1&amp;lt;e&amp;lt;\Phi(n)$ps：这边顺便学习下makedown的数学公式。 然后$gcd(e,\Phi(n))&#x3D;1$ 然后求一个d    $ed\equiv1(mod \Phi(n))$ 就是求个逆元啦。。 然后n和e为公钥喽，d自己保管，这里就是说rsa的困难性就在求$\Phi(n)$ 然后正常求的话">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-29T03:26:21.943Z">
+<meta property="og:updated_time" content="2020-05-06T13:19:32.969Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -354,6 +354,7 @@
 <p>然后正常求的话复杂度应该是：求欧拉函数呗，应该是O(log(n))</p>
 <p>其实应该会退化就是了，比如n是一个大素数，当然，这里n不是，所以<br>大概是O($\sqrt(n)$),所以我们一般最开始取的两个大素数就取个一两百位的<br>这里乘法就很简单了，但是求$\Phi(n)$就很吃力了233.</p>
 <p>所以rsa的困难性在于大数因数分解的困难性。</p>
+<a id="more"></a>
 <h4 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h4><p>记得就是要把信息划分为数值小于n的。</p>
 <p>然后每组进行$c=E(m)=m^e mod\space n$  </p>
 <p>我做作业的时候RSA加密一共有6题，<br>我前5题都用$mod\space n$自己验算还都是对的。。<br>到第6题还好及时发现了，靠太轻敌了嘛？</p>
