@@ -634,7 +634,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  0
+                  283
                 </span>
               
 
@@ -673,7 +673,23 @@
       
         
           
-            
+            <h2 id="AES"><a href="#AES" class="headerlink" title="AES"></a>AES</h2><p>其实这部分才是真的先写的。。<br>因为作业涉及这部分所以先复习一下。</p>
+<p>AES怎么说。。<br>就是经过一系列操作。。<br>其实弄完公钥密码后才感觉分组密码<br>就两个字：麻烦233</p>
+<p>然后因为DES是在之前的部分，所以<br>边讲AES会边涉及比较部分。</p>
+<h4 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h4><p>之所以要AES其实就是DES不够安全啦</p>
+<p><img src="/2020/05/06/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507104848061.png" alt="image-20200507104848061"></p>
+<p>如图改进DES的3DES<br>要求AES速度比DES快，至少比3DES安全。</p>
+<p><img src="/2020/05/06/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507105030558.png" alt="image-20200507105030558"></p>
+<p>然后这是密钥与轮数对应，后面讲解使用128密钥长度，10轮加密</p>
+<h4 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h4><p>由于分组密码加解密过程比较复杂，所以这部分多为浓缩233</p>
+<p><img src="/2020/05/06/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507105210446.png" alt="image-20200507105210446"></p>
+<p>上图是大致流程，$k_0$就是初始密钥喽。</p>
+<p><img src="/2020/05/06/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507105557883.png" alt="image-20200507105557883"></p>
+<p>然后上图是一个对应SPN结构的<br>每个中间结果称为<strong>状态</strong>，记得上图是针对每一轮，然后记得最后一轮是没有列混合的</p>
+<p><img src="/2020/05/06/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507113734939.png" alt="image-20200507113734939"></p>
+<p>上面这个图不要看错了，他是先从上往下然后再从左往右的。</p>
+<p>然后字节指的是单个$a_x$<br>字是红框内的。</p>
+
           
         
       
@@ -1987,7 +2003,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">6.4k</span>
+    <span title="Site words total count">6.7k</span>
   
 </div>
 
