@@ -634,7 +634,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  283
+                  507
                 </span>
               
 
@@ -681,7 +681,7 @@
 <p>如图改进DES的3DES<br>要求AES速度比DES快，至少比3DES安全。</p>
 <p><img src="/2020/05/06/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507105030558.png" alt="image-20200507105030558"></p>
 <p>然后这是密钥与轮数对应，后面讲解使用128密钥长度，10轮加密</p>
-<h4 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h4><p>由于分组密码加解密过程比较复杂，所以这部分多为浓缩233</p>
+<p>由于分组密码加解密过程比较复杂，所以这部分多为浓缩233</p>
 <p><img src="/2020/05/06/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507105210446.png" alt="image-20200507105210446"></p>
 <p>上图是大致流程，$k_0$就是初始密钥喽。</p>
 <p><img src="/2020/05/06/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507105557883.png" alt="image-20200507105557883"></p>
@@ -689,6 +689,26 @@
 <p><img src="/2020/05/06/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507113734939.png" alt="image-20200507113734939"></p>
 <p>上面这个图不要看错了，他是先从上往下然后再从左往右的。</p>
 <p>然后字节指的是单个$a_x$<br>字是红框内的。</p>
+<p>因为AES涉及到一些字，字节计算所以这里要稍微介绍一波啦</p>
+<p>首先这部分肯定不能学全面，主要说个方法喽（在GF（$2^8$）下）<br>就是说系数只有0和1，超过就取模掉</p>
+<h5 id="字节的运算"><a href="#字节的运算" class="headerlink" title="字节的运算"></a>字节的运算</h5><p>加法：</p>
+<p><img src="/2020/05/06/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507141701597.png" alt="image-20200507141701597"></p>
+<p>上图大概就是转为2进制然后逐比特异或就是答案了233</p>
+<p>乘法：</p>
+<p><img src="/2020/05/06/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507141913411.png" alt="image-20200507141913411"></p>
+<p>其实就是最后的mod可能不太熟悉。。就是简单列一下除法就会了，比如$x^{11}$就要用$x^3$去乘m(x)，然后记得mod2</p>
+<p>逆元：</p>
+<p><img src="/2020/05/06/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507142207020.png" alt="image-20200507142207020"></p>
+<p>扩展欧几里得搞一下就是了。</p>
+<h5 id="字的运算"><a href="#字的运算" class="headerlink" title="字的运算"></a>字的运算</h5><p>加法：</p>
+<p><img src="/2020/05/06/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507143021040.png" alt="image-20200507143021040"></p>
+<p>上图其实也很明了，不多说</p>
+<p>乘法：</p>
+<p><img src="/2020/05/06/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507143107642.png" alt="image-20200507143107642"></p>
+<p>之所以他要把乘法这样进行归纳其实是在为后面做准备。</p>
+<p>逆元：</p>
+<p><img src="/2020/05/06/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507143213961.png" alt="image-20200507143213961"></p>
+<p>因为$x^4+1$是可约多项式，所以和平时一样，需要互素，然后再去求。。</p>
 
           
         
@@ -2003,7 +2023,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">6.7k</span>
+    <span title="Site words total count">6.9k</span>
   
 </div>
 
