@@ -634,7 +634,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.1k
+                  1.3k
                 </span>
               
 
@@ -650,7 +650,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  3
+                  4
                 </span>
               
             </div>
@@ -677,6 +677,16 @@
 <p>分组密码都是n比特明文+k比特密钥=n比特密文</p>
 <p>而且分组密码是一一映射的，如下图所示，第二图就有映射到一样的就不行</p>
 <p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200511155505909.png" alt="image-20200511155505909"></p>
+<p><strong>加密表达：$c=E(m,k)$</strong></p>
+<p><strong>解密表达：$m=D(c,k)$</strong></p>
+<p>然后有个显然的性质需求，因为在知道密钥的情况下，加解密要简单易算，所以显然从</p>
+<p>$c=E(m,k)$以及$m=D(c,k)$中接触k是十分困难滴。。</p>
+<p>分组密码会常常谈到两个安全性：<strong>混淆和扩散</strong></p>
+<h4 id="混淆："><a href="#混淆：" class="headerlink" title="混淆："></a>混淆：</h4><p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200511173823409.png" alt="image-20200511173823409"></p>
+<h4 id="分散："><a href="#分散：" class="headerlink" title="分散："></a>分散：</h4><p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200511173848239.png" alt="image-20200511173848239"></p>
+<h4 id="一般流程："><a href="#一般流程：" class="headerlink" title="一般流程："></a>一般流程：</h4><p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200511174612489.png" alt="image-20200511174612489"></p>
+<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200511174651191.png" alt="image-20200511174651191"></p>
+<p>上图是先经过s盒然后置换p然后再经过s盒产生的，也就是先混淆然后扩散，再混淆。</p>
 <h2 id="DES"><a href="#DES" class="headerlink" title="DES"></a>DES</h2><h2 id="AES"><a href="#AES" class="headerlink" title="AES"></a>AES</h2><p>其实这部分才是真的先写的。。<br>因为作业涉及这部分所以先复习一下。</p>
 <p>AES怎么说。。<br>就是经过一系列操作。。<br>其实弄完公钥密码后才感觉分组密码<br>就两个字：麻烦233</p>
 <p>然后因为DES是在之前的部分，所以<br>边讲AES会边涉及比较部分。</p>
@@ -917,7 +927,7 @@
 <p>然后n和e为公钥喽，d自己保管，这里就是说rsa的困难性就在求$\Phi(n)$</p>
 <p>然后正常求的话复杂度应该是：求欧拉函数呗，应该是O(log(n))</p>
 <p>其实应该会退化就是了，比如n是一个大素数，当然，这里n不是，所以<br>大概是O($\sqrt(n)$),所以我们一般最开始取的两个大素数就取个一两百位的<br>这里乘法就很简单了，但是求$\Phi(n)$就很吃力了233.</p>
-<p>所以rsa的困难性在于大数因数分解的困难性。</p>
+<p>所以rsa的困难性在于<strong>大数因数分解的困难性</strong>。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/04/26/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81/#more" rel="contents">
@@ -2073,7 +2083,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">7.5k</span>
+    <span title="Site words total count">7.7k</span>
   
 </div>
 
