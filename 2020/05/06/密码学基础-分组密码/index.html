@@ -73,7 +73,7 @@
 
 
 
-  <meta name="keywords" content="密码学,AES,分组密码," />
+  <meta name="keywords" content="密码学,AES,分组密码,DES," />
 
 
 
@@ -84,14 +84,15 @@
 
 
 
-<meta name="description" content="AES其实这部分才是真的先写的。。因为作业涉及这部分所以先复习一下。 AES怎么说。。就是经过一系列操作。。其实弄完公钥密码后才感觉分组密码就两个字：麻烦233 然后因为DES是在之前的部分，所以边讲AES会边涉及比较部分。 前置工作之所以要AES其实就是DES不够安全啦  如图改进DES的3DES要求AES速度比DES快，至少比3DES安全。  然后这是密钥与轮数对应，后面讲解使用128密钥长度">
-<meta name="keywords" content="密码学,AES,分组密码">
+<meta name="description" content="分组密码基础概念分组密码是对称密码哦 分组密码都是n比特明文+k比特密钥&#x3D;n比特密文 而且分组密码是一一映射的，如下图所示，第二图就有映射到一样的就不行  DESAES其实这部分才是真的先写的。。因为作业涉及这部分所以先复习一下。 AES怎么说。。就是经过一系列操作。。其实弄完公钥密码后才感觉分组密码就两个字：麻烦233 然后因为DES是在之前的部分，所以边讲AES会边涉及比较部分。 前置工作之所">
+<meta name="keywords" content="密码学,AES,分组密码,DES">
 <meta property="og:type" content="article">
 <meta property="og:title" content="密码学基础-分组密码">
 <meta property="og:url" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;2020&#x2F;05&#x2F;06&#x2F;%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81&#x2F;index.html">
 <meta property="og:site_name" content="Bony fish">
-<meta property="og:description" content="AES其实这部分才是真的先写的。。因为作业涉及这部分所以先复习一下。 AES怎么说。。就是经过一系列操作。。其实弄完公钥密码后才感觉分组密码就两个字：麻烦233 然后因为DES是在之前的部分，所以边讲AES会边涉及比较部分。 前置工作之所以要AES其实就是DES不够安全啦  如图改进DES的3DES要求AES速度比DES快，至少比3DES安全。  然后这是密钥与轮数对应，后面讲解使用128密钥长度">
+<meta property="og:description" content="分组密码基础概念分组密码是对称密码哦 分组密码都是n比特明文+k比特密钥&#x3D;n比特密文 而且分组密码是一一映射的，如下图所示，第二图就有映射到一样的就不行  DESAES其实这部分才是真的先写的。。因为作业涉及这部分所以先复习一下。 AES怎么说。。就是经过一系列操作。。其实弄完公钥密码后才感觉分组密码就两个字：麻烦233 然后因为DES是在之前的部分，所以边讲AES会边涉及比较部分。 前置工作之所">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81&#x2F;image-20200511155505909.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81&#x2F;image-20200507104848061.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81&#x2F;image-20200507105030558.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81&#x2F;image-20200507105210446.png">
@@ -123,9 +124,9 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81&#x2F;image-20200507155555876.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81&#x2F;image-20200507160500115.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81&#x2F;image-20200507160721700.png">
-<meta property="og:updated_time" content="2020-05-07T09:32:23.836Z">
+<meta property="og:updated_time" content="2020-05-11T09:25:00.364Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81&#x2F;image-20200507104848061.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;hanani-chen.github.io&#x2F;images&#x2F;%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81&#x2F;image-20200511155505909.png">
 
 
 
@@ -377,7 +378,11 @@
       
 
       
-        <h2 id="AES"><a href="#AES" class="headerlink" title="AES"></a>AES</h2><p>其实这部分才是真的先写的。。<br>因为作业涉及这部分所以先复习一下。</p>
+        <h2 id="分组密码基础概念"><a href="#分组密码基础概念" class="headerlink" title="分组密码基础概念"></a>分组密码基础概念</h2><p>分组密码是<strong>对称密码</strong>哦</p>
+<p>分组密码都是n比特明文+k比特密钥=n比特密文</p>
+<p>而且分组密码是一一映射的，如下图所示，第二图就有映射到一样的就不行</p>
+<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200511155505909.png" alt="image-20200511155505909"></p>
+<h2 id="DES"><a href="#DES" class="headerlink" title="DES"></a>DES</h2><h2 id="AES"><a href="#AES" class="headerlink" title="AES"></a>AES</h2><p>其实这部分才是真的先写的。。<br>因为作业涉及这部分所以先复习一下。</p>
 <p>AES怎么说。。<br>就是经过一系列操作。。<br>其实弄完公钥密码后才感觉分组密码<br>就两个字：麻烦233</p>
 <p>然后因为DES是在之前的部分，所以<br>边讲AES会边涉及比较部分。</p>
 <h4 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h4><p>之所以要AES其实就是DES不够安全啦</p>
@@ -481,6 +486,8 @@
             <a href="/tags/AES/" rel="tag"><i class="fa fa-tag"></i> AES</a>
           
             <a href="/tags/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/" rel="tag"><i class="fa fa-tag"></i> 分组密码</a>
+          
+            <a href="/tags/DES/" rel="tag"><i class="fa fa-tag"></i> DES</a>
           
         </div>
       
@@ -595,7 +602,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -628,7 +635,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AES"><span class="nav-number">1.</span> <span class="nav-text">AES</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前置工作"><span class="nav-number">1.0.1.</span> <span class="nav-text">前置工作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字节的运算"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">字节的运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字的运算"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">字的运算</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加密"><span class="nav-number">1.0.2.</span> <span class="nav-text">加密</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字节替代"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">字节替代</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#行位移"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">行位移</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#列混合"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">列混合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#轮密钥加"><span class="nav-number">1.0.2.4.</span> <span class="nav-text">轮密钥加</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#密钥扩展"><span class="nav-number">1.0.3.</span> <span class="nav-text">密钥扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解密"><span class="nav-number">1.0.4.</span> <span class="nav-text">解密</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分组密码基础概念"><span class="nav-number">1.</span> <span class="nav-text">分组密码基础概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DES"><span class="nav-number">2.</span> <span class="nav-text">DES</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AES"><span class="nav-number">3.</span> <span class="nav-text">AES</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前置工作"><span class="nav-number">3.0.1.</span> <span class="nav-text">前置工作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字节的运算"><span class="nav-number">3.0.1.1.</span> <span class="nav-text">字节的运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字的运算"><span class="nav-number">3.0.1.2.</span> <span class="nav-text">字的运算</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加密"><span class="nav-number">3.0.2.</span> <span class="nav-text">加密</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字节替代"><span class="nav-number">3.0.2.1.</span> <span class="nav-text">字节替代</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#行位移"><span class="nav-number">3.0.2.2.</span> <span class="nav-text">行位移</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#列混合"><span class="nav-number">3.0.2.3.</span> <span class="nav-text">列混合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#轮密钥加"><span class="nav-number">3.0.2.4.</span> <span class="nav-text">轮密钥加</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#密钥扩展"><span class="nav-number">3.0.3.</span> <span class="nav-text">密钥扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解密"><span class="nav-number">3.0.4.</span> <span class="nav-text">解密</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -645,7 +652,7 @@
           <h3 class="widget-title">Tag Cloud</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
             <canvas width="250" height="250" id="resCanvas" style="width=100%">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AES/" rel="tag">AES</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/" rel="tag">RSA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rabin/" rel="tag">Rabin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81/" rel="tag">公钥密码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/" rel="tag">分组密码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag">密码学</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E5%BE%97/" rel="tag">心得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91/" rel="tag">文本编辑</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a><span class="tag-list-count">2</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AES/" rel="tag">AES</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DES/" rel="tag">DES</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/" rel="tag">RSA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rabin/" rel="tag">Rabin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81/" rel="tag">公钥密码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/" rel="tag">分组密码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag">密码学</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E5%BE%97/" rel="tag">心得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91/" rel="tag">文本编辑</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a><span class="tag-list-count">2</span></li></ul>
             </canvas>
           </div>
         </div>
