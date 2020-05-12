@@ -920,14 +920,14 @@
       
         
           <h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><h4 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h4><p>其实挺简单的，就是先选两个大的素数，然后相乘得到n。</p>
-<p>然后取一个数e，$1&lt;e&lt;\Phi(n)$ps：这边顺便学习下makedown的数学公式。</p>
+<p>然后取一个数e，$1&lt;e&lt;\Phi(n)$PS：这边顺便学习下MAKEDOWN的数学公式。</p>
 <p>然后$gcd(e,\Phi(n))=1$</p>
 <p>然后求一个d    $ed\equiv1(mod \Phi(n))$</p>
 <p>就是求个逆元啦。。</p>
-<p>然后n和e为公钥喽，d自己保管，这里就是说rsa的困难性就在求$\Phi(n)$</p>
+<p>然后n和e为公钥喽，d自己保管，这里就是说RSA的困难性就在求$\Phi(n)$</p>
 <p>然后正常求的话复杂度应该是：求欧拉函数呗，应该是O(log(n))</p>
 <p>其实应该会退化就是了，比如n是一个大素数，当然，这里n不是，所以<br>大概是O($\sqrt(n)$),所以我们一般最开始取的两个大素数就取个一两百位的<br>这里乘法就很简单了，但是求$\Phi(n)$就很吃力了233.</p>
-<p>所以rsa的困难性在于<strong>大数因数分解的困难性</strong>。</p>
+<p>所以RSA的困难性在于<strong>大整数因数分解的困难性</strong>。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/04/26/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81/#more" rel="contents">
