@@ -672,8 +672,7 @@
 
       
         
-          
-            <h2 id="分组密码基础概念"><a href="#分组密码基础概念" class="headerlink" title="分组密码基础概念"></a>分组密码基础概念</h2><p>分组密码是<strong>对称密码</strong>哦</p>
+          <h2 id="分组密码基础概念"><a href="#分组密码基础概念" class="headerlink" title="分组密码基础概念"></a>分组密码基础概念</h2><p>分组密码是<strong>对称密码</strong>哦</p>
 <p>分组密码都是n比特明文+k比特密钥=n比特密文</p>
 <p>而且分组密码是一一映射的，如下图所示，第二图就有映射到一样的就不行</p>
 <p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200511155505909.png" alt="image-20200511155505909"></p>
@@ -682,95 +681,13 @@
 <p>然后有个显然的性质需求，因为在知道密钥的情况下，加解密要简单易算，所以显然从</p>
 <p>$c=E(m,k)$以及$m=D(c,k)$中接触k是十分困难滴。。</p>
 <p>分组密码会常常谈到两个安全性：<strong>混淆和扩散</strong></p>
-<h4 id="混淆："><a href="#混淆：" class="headerlink" title="混淆："></a>混淆：</h4><p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200511173823409.png" alt="image-20200511173823409"></p>
-<h4 id="分散："><a href="#分散：" class="headerlink" title="分散："></a>分散：</h4><p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200511173848239.png" alt="image-20200511173848239"></p>
-<h4 id="一般流程："><a href="#一般流程：" class="headerlink" title="一般流程："></a>一般流程：</h4><p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200511174612489.png" alt="image-20200511174612489"></p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200511174651191.png" alt="image-20200511174651191"></p>
-<p>上图是先经过s盒然后置换p然后再经过s盒产生的，也就是先混淆然后扩散，再混淆。</p>
-<h2 id="DES"><a href="#DES" class="headerlink" title="DES"></a>DES</h2><h2 id="AES"><a href="#AES" class="headerlink" title="AES"></a>AES</h2><p>其实这部分才是真的先写的。。<br>因为作业涉及这部分所以先复习一下。</p>
-<p>AES怎么说。。<br>就是经过一系列操作。。<br>其实弄完公钥密码后才感觉分组密码<br>就两个字：麻烦233</p>
-<p>然后因为DES是在之前的部分，所以<br>边讲AES会边涉及比较部分。</p>
-<h4 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h4><p>之所以要AES其实就是DES不够安全啦</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507104848061.png" alt="image-20200507104848061"></p>
-<p>如图改进DES的3DES<br>要求AES速度比DES快，至少比3DES安全。</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507105030558.png" alt="image-20200507105030558"></p>
-<p>然后这是密钥与轮数对应，后面讲解使用128密钥长度，10轮加密</p>
-<p>由于分组密码加解密过程比较复杂，所以这部分多为浓缩233</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507105210446.png" alt="image-20200507105210446"></p>
-<p>上图是大致流程，$k_0$就是初始密钥喽。</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507105557883.png" alt="image-20200507105557883"></p>
-<p>然后上图是一个对应SPN结构的<br>每个中间结果称为<strong>状态</strong>，记得上图是针对每一轮，然后记得最后一轮是没有列混合的</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507113734939.png" alt="image-20200507113734939"></p>
-<p>上面这个图不要看错了，他是先从上往下然后再从左往右的。</p>
-<p>然后字节指的是单个$a_x$<br>字是红框内的。</p>
-<p>因为AES涉及到一些字，字节计算所以这里要稍微介绍一波啦</p>
-<p>首先这部分肯定不能学全面，主要说个方法喽（在GF（$2^8$）下）<br>就是说系数只有0和1，超过就取模掉</p>
-<h5 id="字节的运算"><a href="#字节的运算" class="headerlink" title="字节的运算"></a>字节的运算</h5><p>加法：</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507141701597.png" alt="image-20200507141701597"></p>
-<p>上图大概就是转为2进制然后逐比特异或就是答案了233</p>
-<p>乘法：</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507141913411.png" alt="image-20200507141913411"></p>
-<p>其实就是最后的mod可能不太熟悉。。就是简单列一下除法就会了，比如$x^{11}$就要用$x^3$去乘m(x)，然后记得mod2</p>
-<p>逆元：</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507142207020.png" alt="image-20200507142207020"></p>
-<p>扩展欧几里得搞一下就是了。</p>
-<h5 id="字的运算"><a href="#字的运算" class="headerlink" title="字的运算"></a>字的运算</h5><p>加法：</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507143021040.png" alt="image-20200507143021040"></p>
-<p>上图其实也很明了，不多说</p>
-<p>乘法：</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507143107642.png" alt="image-20200507143107642"></p>
-<p>之所以他要把乘法这样进行归纳其实是在为后面做准备。</p>
-<p>逆元：</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507143213961.png" alt="image-20200507143213961"></p>
-<p>因为$x^4+1$是可约多项式，所以和平时一样，需要互素，然后再去求。。</p>
-<h4 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h4><p>终于来到加密部分了hh</p>
-<h5 id="字节替代"><a href="#字节替代" class="headerlink" title="字节替代"></a>字节替代</h5><p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507150310974.png" alt="image-20200507150310974"></p>
-<p>也没啥好说的，还是注意下字节顺序把。</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507150624038.png" alt="image-20200507150624038"></p>
-<p>hhh一些对比，就是说AES在这个部分是可逆的。DES不是可逆</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507151346950.png" alt="image-20200507151346950"></p>
-<p>然后这是s盒的查表方式啦，还有一种是直接算的，就是下面这两个图</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507151458651.png" alt="image-20200507151458651"></p>
-<p>首先求个逆元显然是mod（m(x))下，就是那个不可约多项式啦</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507151505564.png" alt="image-20200507151505564"></p>
-<p>这边有一个重要的地方要注意：就是上一步的$a^{-1}$是从低位开始排列，输出也是从上到下是从低位开始的。</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507151859219.png" alt="image-20200507151859219"></p>
-<p>其实就是这样上面这个图下标越小表示越低位喽，记住从低到高就是了。</p>
-<p>字节替换是混淆</p>
-<h5 id="行位移"><a href="#行位移" class="headerlink" title="行位移"></a>行位移</h5><p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507152730592.png" alt="image-20200507152730592"></p>
-<p>上图就是行位移，然后它具有一定的扩散作用。</p>
-<h5 id="列混合"><a href="#列混合" class="headerlink" title="列混合"></a>列混合</h5><p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507153359146.png" alt="image-20200507153359146"></p>
-<p>就是这么容易，记得其中涉及到的加法和乘法要用前面的方法，然后记得mod。列混合是扩散</p>
-<h5 id="轮密钥加"><a href="#轮密钥加" class="headerlink" title="轮密钥加"></a>轮密钥加</h5><p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507153551266.png" alt="image-20200507153551266"></p>
-<p>我以为是很多操作的，原来有点记岔了，比较麻烦的是密钥扩展那里。</p>
-<h4 id="密钥扩展"><a href="#密钥扩展" class="headerlink" title="密钥扩展"></a>密钥扩展</h4><p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507154851183.png" alt="image-20200507154851183"></p>
-<p>简单来说就是一开始有4列就是那个128比特的密钥喽，</p>
-<p>然后通过一系列方法来求喽</p>
-<p>然后就是详细过程</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507155039129.png" alt="image-20200507155039129"></p>
-<p>上图是等等计算用的轮常量。</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507155112431.png" alt="image-20200507155112431"></p>
-<p>假设初始密钥长这样</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507155328007.png" alt="image-20200507155328007"></p>
-<p>所以i=4时候用上面这个规则，其中g函数是循环左移一个字节的意思，</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507155340892.png" alt="image-20200507155340892"></p>
-<p>这就是循环左移一位后的样子。</p>
-<p>然后在对没一个字节用字节替换一下，</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507155419131.png" alt="image-20200507155419131"></p>
-<p>变成上图233</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507155439804.png" alt="image-20200507155439804"></p>
-<p>然后再套回之前的公式</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507155503414.png" alt="image-20200507155503414"></p>
-<p>最后就等于这个。</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507155555876.png" alt="image-20200507155555876"></p>
-<p>当i不是4的倍数时候公式就简单点。</p>
-<h4 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h4><p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507160500115.png" alt="image-20200507160500115"></p>
-<p>当初刚刚看到这个图的时候，挺多疑问，现在竟然懂了，<br>其实就是想的时候分解一波就行了，其中$k_{10}$对应解密一开始的$k_{10}$，<br>啥意思呢就是，虽然他图是吧k指向轮密钥加，其实先当他不存在也一个意思。</p>
-<p><img src="/images/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/image-20200507160721700.png" alt="image-20200507160721700"></p>
-<p>然后这边也是容易的，前两步无所谓位置啦。。</p>
-<p>然后后面分配率一下就行了。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/05/06/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
